@@ -72,13 +72,21 @@ Fruit5:
 }
 
 void calculateScore(int fruit){
-	if(fruitsEaten<10){
+	if(fruit == mode){
+			if(fruitsEaten<10){
 		score++;
+			
 	} else if(fruitsEaten > 10 && fruitsEaten < 15){
+		if(fruit == mode){
+			score -= fruit;
+		}
+		
+	} else{
 		score -= fruit;
-	} else(){
-		score += fruit;
 	}
+		}else{
+	score -= fruit;
+		}
 }
 
 
