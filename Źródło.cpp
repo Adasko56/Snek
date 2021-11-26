@@ -161,13 +161,6 @@ void Draw() {
 	if (mode==7){cout<<" xxxxxxx\n xxxxxxx\n     xxx\n    xxx\n   xxx\n  xxx\n xxx";}
 	if (mode==8){cout<<"  xxxxx\n xxxxxxx\n xx   xx\n  xxxxx\n xx   xx\n xx   xx\n xxxxxxx\n  xxxxx";}
 	if (mode==9){cout<<"  xxxxx\n xxxxxxx\n xx   xx\n xx   xx\n  xxxxxx\n      xx\n      xx\n  xxxxx";}
-	}
-	
-	
-	
-	
-
-	cout << "Score: " << score << "  " << mode << endl;
 }
 
 void Input() {
