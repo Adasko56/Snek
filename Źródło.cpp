@@ -4,11 +4,18 @@
 #include <windows.h>
 #include <iomanip>
 
-using namespace std;
-bool gameOver;
 const int width = 20;
 const int height = 20;
-int x, y, fruitX1, fruitY1, fruitX2, fruitY2, fruitX3, fruitY3, fruitX4, fruitY4, fruitX5, fruitY5, score, fruit1, fruit2,fruit3,fruit4,fruit5;
+
+using namespace std;
+bool gameOver;
+// deklarowanie owocowych zmiennych
+int fruitX1, fruitX2, fruitX3, fruitX4, fruitX5;
+int fruitY1, fruitY2, fruitY3, fruitY4, fruitY5, 
+int fruit1, fruit2, fruit3, fruit4, fruit5;
+
+int score;
+int x, y;
 int tailX[400], tailY[400];
 enum Direction { STOP = 0, LEFT, RIGHT, UP, DOWN };
 Direction dir;
