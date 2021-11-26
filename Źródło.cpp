@@ -116,20 +116,36 @@ void Draw() {
 						print = true;
 					}
 				}
-				if (!print)
-					cout << " " << setw(2);
-			}
-			if (j == width - 1)
-				cout << "#" << setw(2);
-		}
-		cout << endl;
-	}
+				if (!print)                                     
+					cout << " " << setw(2);                    
+			}                                                   
+			if (j == width - 1)                                 
+				cout << "#" << setw(2);                        
+		}                                                       
+		cout << endl;                                           
+	}                                                           
 
 	for (int i = 0; i < width + 2; i++)
 		cout << "#" << setw(2);
 	cout << endl;
-	cout << "Score: " << score << "  "<<mode << endl;
-}
+	cout << " Score: " << score << endl;
+	cout<<endl;
+	if (mode == 0){cout<<"   xxx  \n  xxxxx \n xx   xx\n xx   xx\n xx   xx\n xx   xx\n  xxxxx \n   xxx  ";}
+	if (mode==1){cout<<"   xxx  \n  xxxx  \n xxxxx  \n   xxx  \n   xxx  \n   xxx  \n  xxxxx \n  xxxxx ";}
+	if (mode==2){cout<<"   xxx  \n xxxxxxx\n x  xxxx\n   xxxx \n  xxxx  \n xxxx   \n xxxxxxx\n xxxxxxx";}
+	if (mode==3){cout<<"  xxxxx \n xxxxxxx\n xx   xx\n    xxxx\n    xxxx\n xx   xx\n xxxxxxx\n  xxxxx ";}
+	if (mode==4){cout<<"    xxx \n   xxxx \n  xxxxx \n xx  xx \n xxxxxxx\n xxxxxxx\n    xxx \n    xxx ";}
+	if (mode==5){cout<<" xxxxxxx\n xxxxxxx\n xxx    \n xxxxxxx\n xxxxxxx\n     xxx\n xxxxxxx\n xxxxxxx";}
+	if (mode==6){cout<<"  xxxxx \n xxx  xx\n xx\n xx\n xxxxxx\n xx   xx\n xx   xx\n  xxxxx";}
+	if (mode==7){cout<<" xxxxxxx\n xxxxxxx\n     xxx\n    xxx\n   xxx\n  xxx\n xxx";}
+	if (mode==8){cout<<"  xxxxx\n xxxxxxx\n xx   xx\n  xxxxx\n xx   xx\n xx   xx\n xxxxxxx\n  xxxxx";}
+	if (mode==9){cout<<"  xxxxx\n xxxxxxx\n xx   xx\n xx   xx\n  xxxxxx\n      xx\n      xx\n  xxxxx";}
+	}
+	
+	
+	
+	
+
 
 void Input() {
 	if (_kbhit()) {
