@@ -81,9 +81,9 @@ void calculateScore(int fruit) {
 	else {
 		score += fruit;
 	}
-		}else{
-	score -= fruit;
-		}
+	else {
+		score -= fruit;
+	}
 }
 
 
