@@ -7,7 +7,13 @@
 const int width = 20;
 const int height = 20;
 
-int x, y, fruitX1, fruitY1, fruitX2, fruitY2, fruitX3, fruitY3, fruitX4, fruitY4, fruitX5, fruitY5, score, fruit1, fruit2,fruit3,fruit4,fruit5, mode;
+int x, y;
+int fruit1, fruitX1, fruitY1;
+int fruit2, fruitX2, fruitY2;
+int fruit3, fruitX3, fruitY3;
+int fruit4, fruitX4, fruitY4;
+int fruit5, fruitX5, fruitY5;
+int score, mode;
 
 
 using namespace std;
