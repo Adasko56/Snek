@@ -4,11 +4,16 @@
 #include <windows.h>
 #include <iomanip>
 
-using namespace std;
-bool gameOver;
 const int width = 20;
 const int height = 20;
+
 int x, y, fruitX1, fruitY1, fruitX2, fruitY2, fruitX3, fruitY3, fruitX4, fruitY4, fruitX5, fruitY5, score, fruit1, fruit2,fruit3,fruit4,fruit5, mode;
+
+
+using namespace std;
+bool gameOver;
+// deklarowanie owocowych zmiennych
+
 int tailX[400], tailY[400];
 enum Direction { STOP = 0, LEFT, RIGHT, UP, DOWN };
 Direction dir;
@@ -20,25 +25,33 @@ void Setup() {
 	x = width / 2;
 	y = height / 2;
 Fruit1:
+
 	fruit1 = rand() % 10 + 0;
+
+	fruit1 = rand() % 10;
 	fruitX1 = rand() % width;
 	fruitY1 = rand() % height;
 	if (fruitX1 == x && fruitY1 == y)
 		goto Fruit1;
 Fruit2:
+
 	fruit2 = rand() % 10 + 0;
+	fruit2 = rand() % 10;
 	fruitX2 = rand() % width;
 	fruitY2 = rand() % height;
 	if ((fruitX2 == x && fruitY2 == y) || (fruitX2 == fruitX1 && fruitY2 == fruitY1))
 		goto Fruit2;
 Fruit3:
+
 	fruit3 = rand() % 10 + 0;
+	fruit3 = rand() % 10;
 	fruitX3 = rand() % width;
 	fruitY3 = rand() % height;
 	if ((fruitX3 == x && fruitY3 == y) || (fruitX3 == fruitX1 && fruitY3 == fruitY1) || (fruitX3 == fruitX2 && fruitY3 == fruitY2))
 		goto Fruit3;
 Fruit4:
 	fruit4 = rand() % 10 + 0;
+	fruit4 = rand() % 10;
 	fruitX4 = rand() % width;
 	fruitY4 = rand() % height;
 	if ((fruitX4 == x && fruitY4 == y) || (fruitX4 == fruitX1 && fruitY4 == fruitY1) || (fruitX4 == fruitX2 && fruitY4 == fruitY2) || (fruitX4 == fruitX3 && fruitY4 == fruitY3))
