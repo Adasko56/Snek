@@ -12,6 +12,7 @@ int tailX[400], tailY[400];
 enum Direction {STOP = 0, LEFT, RIGHT, UP, DOWN};
 Direction dir;
 void Setup() {
+	cout << "nigga";
 	srand(time(NULL));
 	gameOver = false;
 	dir = STOP;
