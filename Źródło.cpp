@@ -95,28 +95,28 @@ void Draw() {
 				cout << "#" << setw(2);
 			if (i == y && j == x)
 				cout << "@" << setw(2);
-			else if (i == fruitY1 && j == fruitX1){
-			
+			else if (i == fruitY1 && j == fruitX1) {
+
 				cout << fruit1 << setw(2);
 			}
-			else if (i == fruitY2 && j == fruitX2){
-		
-	
+			else if (i == fruitY2 && j == fruitX2) {
+
+
 				cout << fruit2 << setw(2);
 			}
-			else if (i == fruitY3 && j == fruitX3){
-			
+			else if (i == fruitY3 && j == fruitX3) {
+
 				cout << fruit3 << setw(2);
-			
+
 			}
-			else if (i == fruitY4 && j == fruitX4){
-			
+			else if (i == fruitY4 && j == fruitX4) {
+
 				cout << fruit4 << setw(2);
-				
+
 			}
-			else if (i == fruitY5 && j == fruitX5){
-			
-			
+			else if (i == fruitY5 && j == fruitX5) {
+
+
 				cout << fruit5 << setw(2);
 			}
 			else {
@@ -139,7 +139,7 @@ void Draw() {
 	for (int i = 0; i < width + 2; i++)
 		cout << "#" << setw(2);
 	cout << endl;
-	cout << "Score: " << score << "  "<<mode << endl;
+	cout << "Score: " << score << "  " << mode << endl;
 }
 
 void Input() {
@@ -150,7 +150,17 @@ void Input() {
 				break;
 			dir = LEFT;
 			break;
+		case 75:
+			if (dir == RIGHT)
+				break;
+			dir = LEFT;
+			break;
 		case 'd':
+			if (dir == LEFT)
+				break;
+			dir = RIGHT;
+			break;
+		case 77:
 			if (dir == LEFT)
 				break;
 			dir = RIGHT;
@@ -160,7 +170,17 @@ void Input() {
 				break;
 			dir = UP;
 			break;
+		case 72:
+			if (dir == DOWN)
+				break;
+			dir = UP;
+			break;
 		case 's':
+			if (dir == UP)
+				break;
+			dir = DOWN;
+			break;
+		case 80:
 			if (dir == UP)
 				break;
 			dir = DOWN;
@@ -168,38 +188,38 @@ void Input() {
 		case 'q':
 			gameOver = true;
 			break;
-		
+
 		case '1':
-			mode=1;
+			mode = 1;
 			break;
 		case '2':
-			mode=2;
+			mode = 2;
 			break;
 		case '3':
-			mode=3;
+			mode = 3;
 			break;
 		case '4':
-			mode=4;
+			mode = 4;
 			break;
 		case '5':
-			mode=5;
+			mode = 5;
 			break;
 		case '6':
-			mode=6;
+			mode = 6;
 			break;
 		case '7':
-			mode=7;
+			mode = 7;
 			break;
 		case '8':
-			mode=8;
+			mode = 8;
 			break;
 		case '9':
-			mode=9;
+			mode = 9;
 			break;
 		case '0':
-			mode=0;
+			mode = 0;
 			break;
-			
+
 		}
 	}
 }
