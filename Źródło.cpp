@@ -212,14 +212,14 @@ void Logic() {
 				i++;
 		}
 	}
-	if (x == fruitX5 && y == fruitY5) {
+	if ((x == fruitX5) && (y == fruitY5)) {
 		score++;
 	loop5:	//sprawdza czy jablko nie pojawia sie w wezu
 		fruitX5 = rand() % width;
 		fruitY5 = rand() % height;
 		int i = 0;
 		while (i <= score) {
-			if ((fruitX5 == x && fruitY5 == y) || (fruitX5 == tailX[i] && fruitY5 == tailY[i]))
+			if (((fruitX5 == x) && (fruitY5 == y))|| ((fruitX5 == tailX[i])&& (fruitY5 == tailY[i])))
 				goto loop5;
 			else
 				i++;
@@ -233,7 +233,7 @@ int main() {
 		Draw();
 		Input();
 		Logic();
-		Sleep(20); // spowalnia gre, uniezaleznia czas gry od mocy obliczeniowej procesora
+		Sleep(110); // spowalnia gre, uniezaleznia czas gry od mocy obliczeniowej procesora
 	}
 	system("pause");
 	return 0;
