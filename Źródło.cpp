@@ -4,11 +4,22 @@
 #include <windows.h>
 #include <iomanip>
 
-using namespace std;
-bool gameOver;
 const int width = 20;
 const int height = 20;
-int x, y, fruitX1, fruitY1, fruitX2, fruitY2, fruitX3, fruitY3, fruitX4, fruitY4, fruitX5, fruitY5, score, smok;
+
+int x, y;
+int fruit1, fruitX1, fruitY1;
+int fruit2, fruitX2, fruitY2;
+int fruit3, fruitX3, fruitY3;
+int fruit4, fruitX4, fruitY4;
+int fruit5, fruitX5, fruitY5;
+int score, mode;
+
+
+using namespace std;
+bool gameOver;
+// deklarowanie owocowych zmiennych
+
 int tailX[400], tailY[400];
 enum Direction { STOP = 0, LEFT, RIGHT, UP, DOWN };
 Direction dir;
@@ -20,29 +31,42 @@ void Setup() {
 	x = width / 2;
 	y = height / 2;
 Fruit1:
+
+	fruit1 = rand() % 10 + 0;
+
+	fruit1 = rand() % 10;
 	fruitX1 = rand() % width;
 	fruitY1 = rand() % height;
 	if (fruitX1 == x && fruitY1 == y)
 		goto Fruit1;
 Fruit2:
+
+	fruit2 = rand() % 10 + 0;
+	fruit2 = rand() % 10;
 	fruitX2 = rand() % width;
 	fruitY2 = rand() % height;
-	if (fruitX2 == x && fruitY2 == y)
+	if ((fruitX2 == x && fruitY2 == y) || (fruitX2 == fruitX1 && fruitY2 == fruitY1))
 		goto Fruit2;
 Fruit3:
+
+	fruit3 = rand() % 10 + 0;
+	fruit3 = rand() % 10;
 	fruitX3 = rand() % width;
 	fruitY3 = rand() % height;
-	if (fruitX3 == x && fruitY3 == y)
+	if ((fruitX3 == x && fruitY3 == y) || (fruitX3 == fruitX1 && fruitY3 == fruitY1) || (fruitX3 == fruitX2 && fruitY3 == fruitY2))
 		goto Fruit3;
 Fruit4:
+	fruit4 = rand() % 10 + 0;
+	fruit4 = rand() % 10;
 	fruitX4 = rand() % width;
 	fruitY4 = rand() % height;
-	if (fruitX4 == x && fruitY4 == y)
+	if ((fruitX4 == x && fruitY4 == y) || (fruitX4 == fruitX1 && fruitY4 == fruitY1) || (fruitX4 == fruitX2 && fruitY4 == fruitY2) || (fruitX4 == fruitX3 && fruitY4 == fruitY3))
 		goto Fruit4;
 Fruit5:
+	fruit5 = rand() % 10 + 0;
 	fruitX5 = rand() % width;
 	fruitY5 = rand() % height;
-	if (fruitX5 == x && fruitY5 == y)
+	if ((fruitX5 == x && fruitY4 == y) || (fruitX5 == fruitX5 && fruitY5 == fruitY1) || (fruitX5 == fruitX2 && fruitY5 == fruitY2) || (fruitX5 == fruitX3 && fruitY5 == fruitY3) || (fruitX5 == fruitX4 && fruitY5 == fruitY4))
 		goto Fruit5;
 	score = 0;
 }
@@ -60,16 +84,30 @@ void Draw() {
 				cout << "#" << setw(2);
 			if (i == y && j == x)
 				cout << "@" << setw(2);
-			else if (i == fruitY1 && j == fruitX1)
-				cout << "O" << setw(2);
-			else if (i == fruitY2 && j == fruitX2)
-				cout << "O" << setw(2);
-			else if (i == fruitY3 && j == fruitX3)
-				cout << "O" << setw(2);
-			else if (i == fruitY4 && j == fruitX4)
-				cout << "O" << setw(2);
-			else if (i == fruitY5 && j == fruitX5)
-				cout << "O" << setw(2);
+			else if (i == fruitY1 && j == fruitX1) {
+
+				cout << fruit1 << setw(2);
+			}
+			else if (i == fruitY2 && j == fruitX2) {
+
+
+				cout << fruit2 << setw(2);
+			}
+			else if (i == fruitY3 && j == fruitX3) {
+
+				cout << fruit3 << setw(2);
+
+			}
+			else if (i == fruitY4 && j == fruitX4) {
+
+				cout << fruit4 << setw(2);
+
+			}
+			else if (i == fruitY5 && j == fruitX5) {
+
+
+				cout << fruit5 << setw(2);
+			}
 			else {
 				bool print = false;
 				for (int k = 0; k < score; k++) {
@@ -90,7 +128,7 @@ void Draw() {
 	for (int i = 0; i < width + 2; i++)
 		cout << "#" << setw(2);
 	cout << endl;
-	cout << "Score: " << score << endl;
+	cout << "Score: " << score << "  " << mode << endl;
 }
 
 void Input() {
@@ -101,7 +139,17 @@ void Input() {
 				break;
 			dir = LEFT;
 			break;
+		case 75:
+			if (dir == RIGHT)
+				break;
+			dir = LEFT;
+			break;
 		case 'd':
+			if (dir == LEFT)
+				break;
+			dir = RIGHT;
+			break;
+		case 77:
 			if (dir == LEFT)
 				break;
 			dir = RIGHT;
@@ -111,7 +159,17 @@ void Input() {
 				break;
 			dir = UP;
 			break;
+		case 72:
+			if (dir == DOWN)
+				break;
+			dir = UP;
+			break;
 		case 's':
+			if (dir == UP)
+				break;
+			dir = DOWN;
+			break;
+		case 80:
 			if (dir == UP)
 				break;
 			dir = DOWN;
@@ -119,6 +177,38 @@ void Input() {
 		case 'q':
 			gameOver = true;
 			break;
+
+		case '1':
+			mode = 1;
+			break;
+		case '2':
+			mode = 2;
+			break;
+		case '3':
+			mode = 3;
+			break;
+		case '4':
+			mode = 4;
+			break;
+		case '5':
+			mode = 5;
+			break;
+		case '6':
+			mode = 6;
+			break;
+		case '7':
+			mode = 7;
+			break;
+		case '8':
+			mode = 8;
+			break;
+		case '9':
+			mode = 9;
+			break;
+		case '0':
+			mode = 0;
+			break;
+
 		}
 	}
 }
@@ -160,26 +250,35 @@ void Logic() {
 		if (tailX[i] == x && tailY[i] == y)
 			gameOver = true;
 	if (x == fruitX1 && y == fruitY1) {
-		score++;
+		if (mode == fruit1) {
+			score++;
+		}
+		else { score--; }
 	loop1:	//sprawdza czy jablko nie pojawia sie w wezu
 		fruitX1 = rand() % width;
 		fruitY1 = rand() % height;
+		fruit1 = rand() % 10 + 0;
 		int i = 0;
 		while (i <= score) {
-			if ((fruitX1 == x && fruitY1 == y) || (fruitX1 == tailX[i] && fruitY1 == tailY[i]))
+			if ((fruitX1 == x && fruitY1 == y) || (fruitX1 == fruitX5 && fruitY1 == fruitY5) || (fruitX1 == fruitX2 && fruitY1 == fruitY2) || (fruitX1 == fruitX3 && fruitY1 == fruitY3) || (fruitX1 == fruitX4 && fruitY1 == fruitY4) || (fruitX1 == tailX[i] && fruitY1 == tailY[i]))
 				goto loop1;
 			else
 				i++;
 		}
 	}
 	if (x == fruitX2 && y == fruitY2) {
-		score++;
+		if (mode == fruit2) {
+			score++;
+		}
+		else { score--; }
+
 	loop2:	//sprawdza czy jablko nie pojawia sie w wezu
 		fruitX2 = rand() % width;
 		fruitY2 = rand() % height;
+		fruit2 = rand() % 10 + 0;
 		int i = 0;
 		while (i <= score) {
-			if ((fruitX2 == x && fruitY2 == y) || (fruitX2 == tailX[i] && fruitY2 == tailY[i]))
+			if ((fruitX2 == x && fruitY2 == y) || (fruitX1 == fruitX5 && fruitY2 == fruitY1) || (fruitX2 == fruitX5 && fruitY2 == fruitY5) || (fruitX2 == fruitX3 && fruitY2 == fruitY3) || (fruitX2 == fruitX4 && fruitY2 == fruitY4) || (fruitX2 == tailX[i] && fruitY2 == tailY[i]))
 				goto loop2;
 			else
 				i++;
@@ -187,39 +286,53 @@ void Logic() {
 	}
 
 	if (x == fruitX3 && y == fruitY3) {
-		score++;
+		if (mode == fruit3) {
+			score++;
+		}
+		else { score--; }
+
 	loop3:	//sprawdza czy jablko nie pojawia sie w wezu
 		fruitX3 = rand() % width;
 		fruitY3 = rand() % height;
+		fruit3 = rand() % 10 + 0;
 		int i = 0;
 		while (i <= score) {
-			if ((fruitX3 == x && fruitY3 == y) || (fruitX3 == tailX[i] && fruitY3 == tailY[i]))
+			if ((fruitX3 == x && fruitY3 == y) || (fruitX3 == fruitX1 && fruitY3 == fruitY1) || (fruitX3 == fruitX2 && fruitY3 == fruitY2) || (fruitX3 == fruitX5 && fruitY3 == fruitY5) || (fruitX3 == fruitX4 && fruitY3 == fruitY4) || (fruitX3 == tailX[i] && fruitY3 == tailY[i]))
 				goto loop3;
 			else
 				i++;
 		}
+
 	}
 	if (x == fruitX4 && y == fruitY4) {
-		score++;
+		if (mode == fruit4) {
+			score++;
+		}
+		else { score--; }
 	loop4:	//sprawdza czy jablko nie pojawia sie w wezu
 		fruitX4 = rand() % width;
 		fruitY4 = rand() % height;
+		fruit4 = rand() % 10 + 0;
 		int i = 0;
 		while (i <= score) {
-			if ((fruitX4 == x && fruitY4 == y) || (fruitX4 == tailX[i] && fruitY4 == tailY[i]))
+			if ((fruitX4 == x && fruitY4 == y) || (fruitX4 == fruitX5 && fruitY4 == fruitY5) || (fruitX4 == fruitX2 && fruitY4 == fruitY2) || (fruitX4 == fruitX3 && fruitY4 == fruitY3) || (fruitX4 == fruitX5 && fruitY4 == fruitY5) || (fruitX4 == tailX[i] && fruitY4 == tailY[i]))
 				goto loop4;
 			else
 				i++;
 		}
 	}
-	if (x == fruitX5 && y == fruitY5) {
-		score++;
+	if ((x == fruitX5) && (y == fruitY5)) {
+		if (mode == fruit5) {
+			score++;
+		}
+		else { score--; }
 	loop5:	//sprawdza czy jablko nie pojawia sie w wezu
 		fruitX5 = rand() % width;
 		fruitY5 = rand() % height;
+		fruit5 = rand() % 10 + 0;
 		int i = 0;
 		while (i <= score) {
-			if ((fruitX5 == x && fruitY5 == y) || (fruitX5 == tailX[i] && fruitY5 == tailY[i]))
+			if ((fruitX5 == x && fruitY5 == y) || (fruitX5 == fruitX5 && fruitY5 == fruitY1) || (fruitX5 == fruitX2 && fruitY5 == fruitY2) || (fruitX5 == fruitX3 && fruitY5 == fruitY3) || (fruitX5 == fruitX4 && fruitY5 == fruitY4) || (fruitX5 == tailX[i] && fruitY5 == tailY[i]))
 				goto loop5;
 			else
 				i++;
