@@ -8,7 +8,7 @@ using namespace std;
 bool gameOver;
 const int width = 20;
 const int height = 20;
-int x, y, fruitX1, fruitY1, fruitX2, fruitY2, fruitX3, fruitY3, fruitX4, fruitY4, fruitX5, fruitY5, score, smok;
+int x, y, fruitX1, fruitY1, fruitX2, fruitY2, fruitX3, fruitY3, fruitX4, fruitY4, fruitX5, fruitY5, score, fruit1, fruit2,fruit3,fruit4,fruit5;
 int tailX[400], tailY[400];
 enum Direction { STOP = 0, LEFT, RIGHT, UP, DOWN };
 Direction dir;
@@ -20,26 +20,31 @@ void Setup() {
 	x = width / 2;
 	y = height / 2;
 Fruit1:
+	fruit1 = rand() % 10;
 	fruitX1 = rand() % width;
 	fruitY1 = rand() % height;
 	if (fruitX1 == x && fruitY1 == y)
 		goto Fruit1;
 Fruit2:
+	fruit2 = rand() % 10;
 	fruitX2 = rand() % width;
 	fruitY2 = rand() % height;
 	if (fruitX2 == x && fruitY2 == y)
 		goto Fruit2;
 Fruit3:
+	fruit3 = rand() % 10;
 	fruitX3 = rand() % width;
 	fruitY3 = rand() % height;
 	if (fruitX3 == x && fruitY3 == y)
 		goto Fruit3;
 Fruit4:
+	fruit4 = rand() % 10;
 	fruitX4 = rand() % width;
 	fruitY4 = rand() % height;
 	if (fruitX4 == x && fruitY4 == y)
 		goto Fruit4;
 Fruit5:
+	fruit5 = rand() % 10;
 	fruitX5 = rand() % width;
 	fruitY5 = rand() % height;
 	if (fruitX5 == x && fruitY5 == y)
@@ -60,16 +65,30 @@ void Draw() {
 				cout << "#" << setw(2);
 			if (i == y && j == x)
 				cout << "@" << setw(2);
-			else if (i == fruitY1 && j == fruitX1)
-				cout << "O" << setw(2);
-			else if (i == fruitY2 && j == fruitX2)
-				cout << "O" << setw(2);
-			else if (i == fruitY3 && j == fruitX3)
-				cout << "O" << setw(2);
-			else if (i == fruitY4 && j == fruitX4)
-				cout << "O" << setw(2);
-			else if (i == fruitY5 && j == fruitX5)
-				cout << "O" << setw(2);
+			else if (i == fruitY1 && j == fruitX1){
+			
+				cout << fruit1 << setw(2);
+			}
+			else if (i == fruitY2 && j == fruitX2){
+		
+	
+				cout << fruit2 << setw(2);
+			}
+			else if (i == fruitY3 && j == fruitX3){
+			
+				cout << fruit3 << setw(2);
+			
+			}
+			else if (i == fruitY4 && j == fruitX4){
+			
+				cout << fruit4 << setw(2);
+				
+			}
+			else if (i == fruitY5 && j == fruitX5){
+			
+			
+				cout << fruit5 << setw(2);
+			}
 			else {
 				bool print = false;
 				for (int k = 0; k < score; k++) {
@@ -164,6 +183,7 @@ void Logic() {
 	loop1:	//sprawdza czy jablko nie pojawia sie w wezu
 		fruitX1 = rand() % width;
 		fruitY1 = rand() % height;
+		fruit1 = rand() % 10;
 		int i = 0;
 		while (i <= score) {
 			if ((fruitX1 == x && fruitY1 == y) || (fruitX1 == tailX[i] && fruitY1 == tailY[i]))
@@ -174,9 +194,11 @@ void Logic() {
 	}
 	if (x == fruitX2 && y == fruitY2) {
 		score++;
+		
 	loop2:	//sprawdza czy jablko nie pojawia sie w wezu
 		fruitX2 = rand() % width;
 		fruitY2 = rand() % height;
+		fruit2 = rand() % 10;
 		int i = 0;
 		while (i <= score) {
 			if ((fruitX2 == x && fruitY2 == y) || (fruitX2 == tailX[i] && fruitY2 == tailY[i]))
@@ -191,6 +213,7 @@ void Logic() {
 	loop3:	//sprawdza czy jablko nie pojawia sie w wezu
 		fruitX3 = rand() % width;
 		fruitY3 = rand() % height;
+		fruit3 = rand() % 10;
 		int i = 0;
 		while (i <= score) {
 			if ((fruitX3 == x && fruitY3 == y) || (fruitX3 == tailX[i] && fruitY3 == tailY[i]))
@@ -204,6 +227,7 @@ void Logic() {
 	loop4:	//sprawdza czy jablko nie pojawia sie w wezu
 		fruitX4 = rand() % width;
 		fruitY4 = rand() % height;
+		fruit4 = rand() % 10;
 		int i = 0;
 		while (i <= score) {
 			if ((fruitX4 == x && fruitY4 == y) || (fruitX4 == tailX[i] && fruitY4 == tailY[i]))
@@ -217,6 +241,7 @@ void Logic() {
 	loop5:	//sprawdza czy jablko nie pojawia sie w wezu
 		fruitX5 = rand() % width;
 		fruitY5 = rand() % height;
+		fruit5 = rand() % 10;
 		int i = 0;
 		while (i <= score) {
 			if ((fruitX5 == x && fruitY5 == y) || (fruitX5 == tailX[i] && fruitY5 == tailY[i]))
