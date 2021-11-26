@@ -268,7 +268,7 @@ void Logic() {
 	for (int i = 0; i < score; i++)
 		if (tailX[i] == x && tailY[i] == y)
 			gameOver = true;
-	if (x == fruitX1 && y == fruitY1) {}
+	if (x == fruitX1 && y == fruitY1) {
 		calculateScore(fruit1);
 	loop1:	//sprawdza czy jablko nie pojawia sie w wezu
 		fruitX1 = rand() % width;
