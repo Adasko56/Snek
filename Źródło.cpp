@@ -27,22 +27,22 @@ Fruit1:
 Fruit2:
 	fruitX2 = rand() % width;
 	fruitY2 = rand() % height;
-	if (fruitX2 == x && fruitY2 == y)
+	if ((fruitX2 == x && fruitY2 == y) || (fruitX2 == fruitX1 && fruitY2 == fruitY1))
 		goto Fruit2;
 Fruit3:
 	fruitX3 = rand() % width;
 	fruitY3 = rand() % height;
-	if (fruitX3 == x && fruitY3 == y)
+	if ((fruitX3 == x && fruitY3 == y) || (fruitX3 == fruitX1 && fruitY3 == fruitY1) || (fruitX3 == fruitX2 && fruitY3 == fruitY2))
 		goto Fruit3;
 Fruit4:
 	fruitX4 = rand() % width;
 	fruitY4 = rand() % height;
-	if (fruitX4 == x && fruitY4 == y)
+	if ((fruitX4 == x && fruitY4 == y) || (fruitX4 == fruitX1 && fruitY4 == fruitY1) || (fruitX4 == fruitX2 && fruitY4 == fruitY2) || (fruitX4 == fruitX3 && fruitY4 == fruitY3))
 		goto Fruit4;
 Fruit5:
 	fruitX5 = rand() % width;
 	fruitY5 = rand() % height;
-	if (fruitX5 == x && fruitY5 == y)
+	if ((fruitX5 == x && fruitY4 == y) || (fruitX5 == fruitX5 && fruitY5 == fruitY1) || (fruitX5 == fruitX2 && fruitY5 == fruitY2) || (fruitX5 == fruitX3 && fruitY5 == fruitY3) || (fruitX5 == fruitX4 && fruitY5 == fruitY4))
 		goto Fruit5;
 	score = 0;
 }
