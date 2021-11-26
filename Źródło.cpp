@@ -1,4 +1,4 @@
-1, fruitY1, fruitX2, fruitY2, fruitX3, fruitY3, fruitX4, fruitY4, fruitX5, fruitY5, score, smok;
+1, fruitY1, fruitX2, fruitY2, fruitX3, fruitY3, fruitX4, fruitY4, fruitX5, fruitY5, score;
 int tailX[400], tailY[400];
 enum Direction {STOP = 0, LEFT, RIGHT, UP, DOWN};
 Direction dir;
