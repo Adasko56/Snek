@@ -8,7 +8,7 @@ using namespace std;
 bool gameOver;
 const int width = 20;
 const int height = 20;
-int x, y, fruitX1, fruitY1, fruitX2, fruitY2, fruitX3, fruitY3, fruitX4, fruitY4, fruitX5, fruitY5, score, fruit1, fruit2,fruit3,fruit4,fruit5;
+int x, y, fruitX1, fruitY1, fruitX2, fruitY2, fruitX3, fruitY3, fruitX4, fruitY4, fruitX5, fruitY5, score, fruit1, fruit2,fruit3,fruit4,fruit5, mode;
 int tailX[400], tailY[400];
 enum Direction { STOP = 0, LEFT, RIGHT, UP, DOWN };
 Direction dir;
@@ -20,31 +20,31 @@ void Setup() {
 	x = width / 2;
 	y = height / 2;
 Fruit1:
-	fruit1 = rand() % 10;
+	fruit1 = rand() % 10 + 0;
 	fruitX1 = rand() % width;
 	fruitY1 = rand() % height;
 	if (fruitX1 == x && fruitY1 == y)
 		goto Fruit1;
 Fruit2:
-	fruit2 = rand() % 10;
+	fruit2 = rand() % 10 + 0;
 	fruitX2 = rand() % width;
 	fruitY2 = rand() % height;
 	if ((fruitX2 == x && fruitY2 == y) || (fruitX2 == fruitX1 && fruitY2 == fruitY1))
 		goto Fruit2;
 Fruit3:
-	fruit3 = rand() % 10;
+	fruit3 = rand() % 10 + 0;
 	fruitX3 = rand() % width;
 	fruitY3 = rand() % height;
 	if ((fruitX3 == x && fruitY3 == y) || (fruitX3 == fruitX1 && fruitY3 == fruitY1) || (fruitX3 == fruitX2 && fruitY3 == fruitY2))
 		goto Fruit3;
 Fruit4:
-	fruit4 = rand() % 10;
+	fruit4 = rand() % 10 + 0;
 	fruitX4 = rand() % width;
 	fruitY4 = rand() % height;
 	if ((fruitX4 == x && fruitY4 == y) || (fruitX4 == fruitX1 && fruitY4 == fruitY1) || (fruitX4 == fruitX2 && fruitY4 == fruitY2) || (fruitX4 == fruitX3 && fruitY4 == fruitY3))
 		goto Fruit4;
 Fruit5:
-	fruit5 = rand() % 10;
+	fruit5 = rand() % 10 + 0;
 	fruitX5 = rand() % width;
 	fruitY5 = rand() % height;
 	if ((fruitX5 == x && fruitY4 == y) || (fruitX5 == fruitX5 && fruitY5 == fruitY1) || (fruitX5 == fruitX2 && fruitY5 == fruitY2) || (fruitX5 == fruitX3 && fruitY5 == fruitY3) || (fruitX5 == fruitX4 && fruitY5 == fruitY4))
@@ -138,6 +138,28 @@ void Input() {
 		case 'q':
 			gameOver = true;
 			break;
+		
+		case '1':
+			mode=1;
+		case '2':
+			mode=2;
+		case '3':
+			mode=3;
+		case '4':
+			mode=4;
+		case '5':
+			mode=5;
+		case '6':
+			mode=6;
+		case '7':
+			mode=7;
+		case '8':
+			mode=8;
+		case '9':
+			mode=9;
+		case '0':
+			mode=0;
+			
 		}
 	}
 }
