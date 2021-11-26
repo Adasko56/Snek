@@ -14,7 +14,7 @@ int fruit3, fruitX3, fruitY3;
 int fruit4, fruitX4, fruitY4;
 int fruit5, fruitX5, fruitY5;
 int score, mode;
-
+int fruitsEaten;
 
 using namespace std;
 bool gameOver;
@@ -70,6 +70,19 @@ Fruit5:
 		goto Fruit5;
 	score = 0;
 }
+
+void calculateScore(int fruit) {
+	if (fruitsEaten < 10) {
+		score++;
+	}
+	else if (fruitsEaten > 10 && fruitsEaten < 15) {
+		score -= fruit;
+	}
+	else {
+		score += fruit;
+	}
+}
+
 
 void Draw() {
 	system("cls");
@@ -250,10 +263,7 @@ void Logic() {
 		if (tailX[i] == x && tailY[i] == y)
 			gameOver = true;
 	if (x == fruitX1 && y == fruitY1) {
-		if (mode == fruit1) {
-			score++;
-		}
-		else { score--; }
+		calculateScore(fruit1);
 	loop1:	//sprawdza czy jablko nie pojawia sie w wezu
 		fruitX1 = rand() % width;
 		fruitY1 = rand() % height;
@@ -267,10 +277,7 @@ void Logic() {
 		}
 	}
 	if (x == fruitX2 && y == fruitY2) {
-		if (mode == fruit2) {
-			score++;
-		}
-		else { score--; }
+		calculateScore(fruit2);
 
 	loop2:	//sprawdza czy jablko nie pojawia sie w wezu
 		fruitX2 = rand() % width;
@@ -286,11 +293,7 @@ void Logic() {
 	}
 
 	if (x == fruitX3 && y == fruitY3) {
-		if (mode == fruit3) {
-			score++;
-		}
-		else { score--; }
-
+		calculateScore(fruit3);
 	loop3:	//sprawdza czy jablko nie pojawia sie w wezu
 		fruitX3 = rand() % width;
 		fruitY3 = rand() % height;
@@ -305,10 +308,7 @@ void Logic() {
 
 	}
 	if (x == fruitX4 && y == fruitY4) {
-		if (mode == fruit4) {
-			score++;
-		}
-		else { score--; }
+		calculateScore(fruit4);
 	loop4:	//sprawdza czy jablko nie pojawia sie w wezu
 		fruitX4 = rand() % width;
 		fruitY4 = rand() % height;
@@ -322,10 +322,7 @@ void Logic() {
 		}
 	}
 	if ((x == fruitX5) && (y == fruitY5)) {
-		if (mode == fruit5) {
-			score++;
-		}
-		else { score--; }
+		calculateScore(fruit5);
 	loop5:	//sprawdza czy jablko nie pojawia sie w wezu
 		fruitX5 = rand() % width;
 		fruitY5 = rand() % height;
@@ -346,7 +343,7 @@ int main() {
 		Draw();
 		Input();
 		Logic();
-		Sleep(20); // spowalnia gre, uniezaleznia czas gry od mocy obliczeniowej procesora
+		Sleep(110); // spowalnia gre, uniezaleznia czas gry od mocy obliczeniowej procesora
 	}
 	system("pause");
 	return 0;
