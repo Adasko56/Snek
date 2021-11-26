@@ -122,7 +122,7 @@ void Draw() {
 	for (int i = 0; i < width + 2; i++)
 		cout << "#" << setw(2);
 	cout << endl;
-	cout << "Score: " << score << endl;
+	cout << "Score: " << score << "  "<<mode << endl;
 }
 
 void Input() {
@@ -154,24 +154,34 @@ void Input() {
 		
 		case '1':
 			mode=1;
+			break;
 		case '2':
 			mode=2;
+			break;
 		case '3':
 			mode=3;
+			break;
 		case '4':
 			mode=4;
+			break;
 		case '5':
 			mode=5;
+			break;
 		case '6':
 			mode=6;
+			break;
 		case '7':
 			mode=7;
+			break;
 		case '8':
 			mode=8;
+			break;
 		case '9':
 			mode=9;
+			break;
 		case '0':
 			mode=0;
+			break;
 			
 		}
 	}
@@ -214,11 +224,14 @@ void Logic() {
 		if (tailX[i] == x && tailY[i] == y)
 			gameOver = true;
 	if (x == fruitX1 && y == fruitY1) {
+		if(mode==fruit1){
 		score++;
+		}
+	else {score--;}
 	loop1:	//sprawdza czy jablko nie pojawia sie w wezu
 		fruitX1 = rand() % width;
 		fruitY1 = rand() % height;
-		fruit1 = rand() % 10;
+		fruit1 = rand() % 10+0;
 		int i = 0;
 		while (i <= score) {
 			if ((fruitX1 == x && fruitY1 == y) || (fruitX1 == tailX[i] && fruitY1 == tailY[i]))
@@ -228,12 +241,15 @@ void Logic() {
 		}
 	}
 	if (x == fruitX2 && y == fruitY2) {
+		if(mode==fruit2){
 		score++;
+		}
+	else {score--;}
 		
 	loop2:	//sprawdza czy jablko nie pojawia sie w wezu
 		fruitX2 = rand() % width;
 		fruitY2 = rand() % height;
-		fruit2 = rand() % 10;
+		fruit2 = rand() % 10+0;
 		int i = 0;
 		while (i <= score) {
 			if ((fruitX2 == x && fruitY2 == y) || (fruitX2 == tailX[i] && fruitY2 == tailY[i]))
@@ -244,11 +260,15 @@ void Logic() {
 	}
 
 	if (x == fruitX3 && y == fruitY3) {
+		if(mode==fruit3){
 		score++;
+	}
+	else {score--;}
+	
 	loop3:	//sprawdza czy jablko nie pojawia sie w wezu
 		fruitX3 = rand() % width;
 		fruitY3 = rand() % height;
-		fruit3 = rand() % 10;
+		fruit3 = rand() % 10+0;
 		int i = 0;
 		while (i <= score) {
 			if ((fruitX3 == x && fruitY3 == y) || (fruitX3 == tailX[i] && fruitY3 == tailY[i]))
@@ -256,13 +276,17 @@ void Logic() {
 			else
 				i++;
 		}
+		
 	}
 	if (x == fruitX4 && y == fruitY4) {
-		score++;
+		if(mode==fruit4){
+			score++;
+	    	}
+	else {score--;}
 	loop4:	//sprawdza czy jablko nie pojawia sie w wezu
 		fruitX4 = rand() % width;
 		fruitY4 = rand() % height;
-		fruit4 = rand() % 10;
+		fruit4 = rand() % 10+0;
 		int i = 0;
 		while (i <= score) {
 			if ((fruitX4 == x && fruitY4 == y) || (fruitX4 == tailX[i] && fruitY4 == tailY[i]))
@@ -272,11 +296,14 @@ void Logic() {
 		}
 	}
 	if ((x == fruitX5) && (y == fruitY5)) {
+		if(mode==fruit5){
 		score++;
+		}
+	else {score--;}
 	loop5:	//sprawdza czy jablko nie pojawia sie w wezu
 		fruitX5 = rand() % width;
 		fruitY5 = rand() % height;
-		fruit5 = rand() % 10;
+		fruit5 = rand() % 10+0;
 		int i = 0;
 		while (i <= score) {
 			if (((fruitX5 == x) && (fruitY5 == y))|| ((fruitX5 == tailX[i])&& (fruitY5 == tailY[i])))
