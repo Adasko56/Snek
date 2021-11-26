@@ -15,6 +15,7 @@ int fruit4, fruitX4, fruitY4;
 int fruit5, fruitX5, fruitY5;
 int score, mode;
 int fruitsEaten;
+int length;
 
 using namespace std;
 bool gameOver;
@@ -72,24 +73,25 @@ Fruit5:
 }
 
 void calculateScore(int fruit){
+	fruitsEaten++;
 	if(fruit == mode){
+			length++;
 			if(fruitsEaten<10){
-		score++;
-			
-	} else if(fruitsEaten > 10 && fruitsEaten < 15){
-		if(fruit == mode){
-			score -= fruit;
-		}
-		
-	} else{
-		score -= fruit;
-	}
+				score++;
+			} else if(fruitsEaten > 10 && fruitsEaten < 15){
+				
+				
+					score *= fruit;
+				}else{
+					score += fruit;
+				}
 		}else{
-	score -= fruit;
+			score --;
+			length--;
 		}
+	
+	
 }
-
-
 void Draw() {
 	system("cls");
 	cout << setw(2);
@@ -129,7 +131,7 @@ void Draw() {
 			}
 			else {
 				bool print = false;
-				for (int k = 0; k < score; k++) {
+				for (int k = 0; k < length; k++) {
 					if (tailX[k] == j && tailY[k] == i) {
 						cout << "o" << setw(2);
 						print = true;
